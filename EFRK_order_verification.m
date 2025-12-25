@@ -1,13 +1,15 @@
 %% Interested readers could change the values of 'RK_flag' to verify the EFRK method 
 %%  based on a given Butcher tableau. 
-RK_flag = 4; % Verify order conditions of RK(4, 4)
+RK_flag = 32; % Verify order conditions of RK(4, 4)
 switch RK_flag
     case 1 % RK(1, 1)
         A = [0; 1]; order = 1;
     case 2 % RK(2, 2), Heun's second-order scheme
         A = [0 0; 1 0; 1/2 1/2]; order = 2;
-    case 3 % RK(3, 3)
+    case 3 % RK(3, 3) in Eq. (18)
         A = [0 0 0; 2/3 0 0; 2/9 4/9 0; 1/4 3/16 9/16]; order = 3;
+    case 32 % RK(3,3) in Eq. (41)
+       A = [0 0 0; 1 0 0; 1/4 1/4 0; 1/6 1/6 2/3]; order = 3;
     case 4 % RK(4, 4)
         A = [0 0 0 0; 1/2 0 0 0; 0 1/2 0 0; 0 0 1 0; 1/6 1/3 1/3 1/6]; order = 4;
     case 5 % RK(5, 4) 
